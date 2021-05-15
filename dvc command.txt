@@ -1,0 +1,6 @@
+1. dvc repro 
+	#run the program flow
+2. dvc metrics show 
+	#show the score
+3. dvc metrics diff 
+	# show the difference between prev & current score
