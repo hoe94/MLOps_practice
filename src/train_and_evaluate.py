@@ -56,7 +56,7 @@ def train_and_evaluate(config_path):
     scores_file = config["reports"]["scores"]
     params_file = config["reports"]["params"]
 
-    with open(scores_file, 'w') as f:
+    with open(scores_file, 'a') as f:
         scores = {
             "rmse": rmse,
             "mae": mae,
@@ -64,7 +64,7 @@ def train_and_evaluate(config_path):
         }
         json.dump(scores, f, indent = 4)
 
-    with open(params_file, 'w') as f:
+    with open(params_file, 'a') as f:
         params = {
             "alpha": alpha,
             "l1_ratio": l1_ratio
