@@ -17,6 +17,8 @@ class NotInCols(Exception):
         self.message = message
         super().__init__(self.message)
 
+
+
 def read_params(config_path = params_path):
     with open(config_path) as yaml_file:
         config = yaml.safe_load(yaml_file)
@@ -40,7 +42,7 @@ def predict(data):
 
 def get_schema(schema_path = schema_path):
     with open(schema_path) as json_file:
-        schema = json.load(json_file)
+         schema = json.load(json_file)
     return schema    
 
 def validate_input(dict_request):
@@ -52,11 +54,11 @@ def validate_input(dict_request):
 
     def _validate_values(col, val):
         schema = get_schema()
-        if not (schema[col]["min"] <= float(dict_request[col]) <= schema[col]["max"]):
+        if not (schema[col]["min"] <= float(dict_request[col]) <= schema[col]["max"]) :            
             raise NotInRange
         
     for col, val in dict_request.items():
-        _validate_cols(col)
+        #_validate_cols(col)
         _validate_values(col, val)
 
     return True
