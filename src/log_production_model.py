@@ -19,7 +19,7 @@ def log_production_model(config_path):
     lowest = runs["metrics.mae"].sort_values(ascending = True)[0]
     lowest_run_id = runs[runs["metrics.mae"] == lowest]
 
-    client = MLflowClient()
+    client = MlflowClient()
     for mv in client.search_model_versions(f"name = '{model_name}'"):
     #for mv in client.search_model_versions():
         mv = dict(mv)
