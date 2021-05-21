@@ -46,9 +46,9 @@ def train_and_evaluate(config_path):
 ########################## ML FLOW ################################################
 
     mlflow_config = config["mlflow_config"]
-    #remote_server_uri = mlflow_config["remote_server_uri"]
+    remote_server_uri = mlflow_config["remote_server_uri"]
 
-    #mlflow.set_tracking_uri(remote_server_uri)
+    mlflow.set_tracking_uri(remote_server_uri)
     mlflow.set_experiment(mlflow_config["experiment_name"])
 
     with mlflow.start_run(run_name = mlflow_config["run_name"]) as mlops_run:
