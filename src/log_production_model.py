@@ -1,7 +1,7 @@
 from src.get_data import read_params
 import argparse
 import mlflow
-from mlflow.tracking import MLflowClient
+from mlflow.tracking import MlflowClient
 from pprint import pprint
 import joblib
 import os
@@ -21,6 +21,7 @@ def log_production_model(config_path):
 
     client = MLflowClient()
     for mv in client.search_model_versions(f"name = '{model_name}'"):
+    #for mv in client.search_model_versions():
         mv = dict(mv)
 
         if mv["run_id"] == lowest_run_id:
